@@ -159,21 +159,25 @@ void loop() {
 
 
 void checkTemp(){
-  if (currTemp<minTemp) {
+  if (currTemp<minTemp) { //If the temperature is too cold
     bottomLine = "OUCH! TOO COLD!         ";
     lcd.setRGB(0, 0 ,255);
+
+    //Alarm noise
     digitalWrite(3, HIGH);
     delay(400);
     digitalWrite(3, LOW);
     delay(400);
-  } else if (currTemp>maxTemp) {
+  } else if (currTemp>maxTemp) { //If the temperature is too hot
     bottomLine = "OUCH! TOO WARM!        ";
     lcd.setRGB(255,0,0);
+
+    //Alarm noise
     digitalWrite(3, HIGH);
     delay(400);
     digitalWrite(3, LOW);
     delay(400);
-  } else {
+  } else { //If the temperature is fine
     bottomLine = "Must be comfy!         ";
     digitalWrite(3, LOW);
     lcd.setRGB(0, 255, 0);
